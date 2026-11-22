@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>nginx2root lab target</title>
+    <style>
+      :root { color-scheme: light dark; }
+      body {
+        font-family: ui-sans-serif, system-ui, sans-serif;
+        max-width: 46rem;
+        margin: 4rem auto;
+        padding: 0 1.25rem;
+        line-height: 1.6;
+      }
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        background: rgba(127, 127, 127, 0.15);
+        padding: 0.1em 0.35em;
+        border-radius: 4px;
+      }
+      .badge {
+        display: inline-block;
+        background: #b91c1c;
+        color: #fff;
+        padding: 0.15rem 0.6rem;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+    </style>
+  </head>
+  <body>
+    <p><span class="badge">CVE-2026-123007 lab</span></p>
+    <h1>nginx2root lab target</h1>
+    <p>
+      This page is served by a pinned nginx container used to validate
+      exposure to <strong>CVE-2026-123007</strong> (HTTP/2 flow-control
+      integer underflow). It exists for defensive testing only.
+    </p>
+    <ul>
+      <li><code>GET /</code> &mdash; this page</li>
+      <li><code>GET /healthz</code> &mdash; returns <code>200 ok</code></li>
+    </ul>
+    <p>
+      Check the response headers (<code>Server</code>, <code>ALPN</code>) or run
+      <code>./scripts/check-exposure.sh</code> against this host.
+    </p>
+  </body>
+</html>

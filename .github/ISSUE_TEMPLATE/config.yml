@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: nginx security advisories
+    url: https://nginx.org/en/security_advisories.html
+    about: Report or read vendor advisories for nginx itself (including CVE-2026-123007).
+  - name: Security issue in this repository
+    url: https://github.com/VABISMO/nginx2root/security/advisories/new
+    about: Report a vulnerability in the tooling privately, following SECURITY.md.
+  - name: Code of Conduct
+    url: https://github.com/VABISMO/nginx2root/blob/main/CODE_OF_CONDUCT.md
+    about: Read the community standards before participating.

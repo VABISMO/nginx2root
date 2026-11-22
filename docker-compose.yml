@@ -1,0 +1,40 @@
+name: nginx2root-lab
+
+services:
+  # Vulnerable target: last release before the fix (18 Nov 2026).
+  nginx-vuln:
+    build:
+      context: ./lab/nginx
+      args:
+        NGINX_VERSION: "1.31.8"
+    image: nginx2root-lab:vuln-1.31.8
+    container_name: nginx2root-vuln
+    ports:
+      - "8443:443"
+    volumes:
+      - ./lab/certs:/etc/nginx/certs:ro
+    healthcheck:
+      test: ["CMD", "curl", "-fk", "https://localhost/healthz"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+      start_period: 5s
+
+  # Patched target: first fixed mainline release.
+  nginx-patched:
+    build:
+      context: ./lab/nginx
+      args:
+        NGINX_VERSION: "1.31.9"
+    image: nginx2root-lab:patched-1.31.9
+    container_name: nginx2root-patched
+    ports:
+      - "9443:443"
+    volumes:
+      - ./lab/certs:/etc/nginx/certs:ro
+    healthcheck:
+      test: ["CMD", "curl", "-fk", "https://localhost/healthz"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+      start_period: 5s

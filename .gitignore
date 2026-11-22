@@ -1,0 +1,18 @@
+# Generated TLS material — always regenerate locally, never commit.
+lab/certs/
+
+# Python
+__pycache__/
+*.py[cod]
+.ruff_cache/
+.venv/
+venv/
+
+# Editors / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Logs
+*.log
